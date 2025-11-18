@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valores - Carita Feliz o Triste</title>
+  <style>
+    body {
+      position: relative;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+      background-color: #f2f2f2;
+    }
+    img{
+      width: 400px;
+      position: absolute;
+      left: 50%;
+      top: 350px;
+      transform: translate(-50%, -50%); /* Lo centra exactamente */
+      z-index: -1;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0078d7;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 40px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Compruebar si la palabra se relaciona con el valor<br> <strong>Amistad</strong></h1>
+  <p>Escribe una palabra relacionada con este valor:</p>
+  
+  <input type="text" id="palabra" placeholder="Ejemplo: Responsabilidad">
+  <button onclick="verificar()">Verificar</button>
+
+  <div id="resultado"></div>
+  <img src="/friendship.png" alt="amigos">
+  <script>
+    function verificar() {
+      const palabraUsuario = document.getElementById("palabra").value.trim().toLowerCase();
+
+      const valores = [
+        "trabajo", "•	Estudiar","Organizar", "Planificar", "Cumplir",
+        "responsabilidad",
+        "puntualidad",
+        "constancia",
+        "perseverancia",
+        "compromiso",
+        "esfuerzo",
+        "orden",
+        "enfoque",
+        "autocontrol",
+        "determinación",
+        "honestidad",
+        "estudiar",
+        "estudio",
+      ];
+
+      const resultado = document.getElementById("resultado");
+
+      if (valores.includes(palabraUsuario)) {
+        resultado.textContent = "😊 ¡Muy bien! Es un valor positivo.";
+      } else if (palabraUsuario === "") {
+        resultado.textContent = "⚠️ Escribe una palabra primero.";
+      } else {
+        resultado.textContent = "😞 No es parte del grupo de valores.";
+      }
+    }
+  </script>
+
+</body>
+</html>
